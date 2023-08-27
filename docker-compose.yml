@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    image: ahmed0001/two-tier-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: ahmed0001/two-tier-db
+    volumes:
+      - mysql-data:/var/lib/mysql  # Mount the volume for MySQL data storage
+
+volumes:
+  mysql-data:
